@@ -1,0 +1,41 @@
+.wrapper__taskTodo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+/* стили для list */
+.list {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+}
+
+/* стили для item */
+.item {
+  display: flex;
+  /* align-items: center; */
+  /* border: 1px solid #1976d2; */
+  /* padding: 10px; */
+  /* border-radius: 5px; */
+}
+
+/* текст */
+.text {
+  width: 100%;
+  max-width: 660px;
+  /* height: 50px; */
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #46571e;
+  font-size: 18px;
+}
+
+.itemQWE {
+  background-color: #99c2eb;
+  text-decoration: line-through;
+}
