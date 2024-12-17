@@ -1,0 +1,18 @@
+
+.item {
+    display: flex;
+  }
+
+  .text {
+    width: 100%;
+    max-width: 650px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #1565c0;
+    font-size: 18px;
+  }
+
+  .completed {
+    background-color: #99c2eb;
+    text-decoration: line-through;
+  }
