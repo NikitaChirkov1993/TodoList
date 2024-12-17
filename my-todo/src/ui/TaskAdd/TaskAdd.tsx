@@ -1,10 +1,12 @@
 import { Button } from "@mui/material";
+import { FC } from "react";
 import style from "./TaskAdd.module.css";
 
-const TaskAdd = ({onClick}) => {
+
+const TaskAdd:FC = () => {
     return (
         <Button
-            onClick={onClick}
+            type="submit"
             className={style.button}
             variant="contained"
             size="medium">

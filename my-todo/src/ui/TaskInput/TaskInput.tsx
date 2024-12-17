@@ -1,13 +1,19 @@
 import { TextField } from "@mui/material";
+import { ChangeEvent, FC } from "react";
 import style from './TaskInput.module.css';
 
-const TaskInput = ({ taskInput, changeInput }) => {
+interface ITaskInput {
+    onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+    value: string;
+}
+
+const TaskInput:FC<ITaskInput> = ({ onChange, value }) => {
 
     return (
         <div className={style.from__input}>
             <TextField
-                onChange={changeInput}
-                value={taskInput}
+                onChange={onChange}
+                value={value}
                 label="Напишите задачу"
                 variant="outlined"
                 size="medium"

@@ -1,10 +1,17 @@
 import { Checkbox } from "@mui/material";
+import { FC } from "react";
 
-const TaskCheckbox = ({ handleTaskDone,checked }) => {
+interface ITaskCheckbox {
+    onClick: () => void;
+    checked: boolean;
+
+}
+
+const TaskCheckbox:FC<ITaskCheckbox> = ({ onClick,checked }) => {
     return (
         <Checkbox
             checked={checked}
-            onClick={handleTaskDone}
+            onClick={onClick}
             value="checkedA"
             inputProps={{ "aria-label": "Checkbox A" }}
         />
