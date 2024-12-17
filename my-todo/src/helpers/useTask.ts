@@ -14,7 +14,6 @@ export const useTask = () => {
             localStorage.setItem("taskList", JSON.stringify(tasks));
         }, [tasks]);
 
-
         //логика добавления задач в список:
         const handleTaskAdd = (event: FormEvent<HTMLFormElement>) => {
             event.preventDefault();
@@ -36,7 +35,7 @@ export const useTask = () => {
             setFilteredTasks(filterTasksUtil(updatedTasks, flagFilter));
         };
 
-        //Логика добавления выполненых задач:
+        //Логика добавления выполненых/невыполненных задач:
         const handleTaskDone = (id: number) => {
             const updatedTasks = tasks.map((el) => (el.id === id ? { ...el, done: !el.done } : el));
             setTask(updatedTasks);
@@ -46,7 +45,7 @@ export const useTask = () => {
         //Логика фильтрации:
         const handleFilterChange = (event: ChangeEvent<HTMLSelectElement>) => {
             const value = event.target.value;
-            setFlagFilter(value); 
+            setFlagFilter(value);
             setFilteredTasks(filterTasksUtil(tasks, value));
     };
 
