@@ -1,11 +1,13 @@
 import TaskFilter from "@components/TaskFilter/TaskFilter";
 import TaskList from "@components/TaskList/TaskList";
-import { useTask } from "@helpers/useTask";
+import { useTodo } from "@helpers/useTodo";
+import ModalTaskEdit from "@ui/ModalTaskEdit/ModalTaskEdit";
 import TaskAdd from "@ui/TaskAdd/TaskAdd";
 import TaskInput from "@ui/TaskInput/TaskInput";
 import style from "./Tasktodo.module.css";
 
 const TaskTodo = () => {
+
     const {
         filteredTasks,
         handleTaskAdd,
@@ -14,7 +16,16 @@ const TaskTodo = () => {
         handleFilterChange,
         onChangeInput,
         taskInput,
-    } = useTask()
+        visibleModal,
+        handleModalOpen,
+        handleModalClose,
+        taskEditInput,
+        onChangeEditInput,
+        handleTaskEditAdd,
+    } = useTodo();
+
+    console.log(taskEditInput);
+
 
     return (
         <div className={style.wrapper}>
@@ -30,6 +41,15 @@ const TaskTodo = () => {
                 filteredTasks={filteredTasks}
                 handleTaskDone={handleTaskDone}
                 handleTaskDelete={handleTaskDelete}
+                handleModalOpen={handleModalOpen}
+            />
+
+            <ModalTaskEdit
+                visibleModal={visibleModal}
+                handleModalClose={handleModalClose}
+                taskEditInput={taskEditInput}
+                onChangeEditInput={onChangeEditInput}
+                handleTaskEditAdd={handleTaskEditAdd}
             />
 
         </div>

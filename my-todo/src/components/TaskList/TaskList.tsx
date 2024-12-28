@@ -7,20 +7,23 @@ interface ITaskList {
     filteredTasks: Itask[];
     handleTaskDelete: (id: number) => void;
     handleTaskDone: (id: number) => void;
+    handleModalOpen: (id: number) => void;
 }
 
-const TaskList:FC<ITaskList> = ({ filteredTasks, handleTaskDelete, handleTaskDone }) => {
+const TaskList: FC<ITaskList> = ({ filteredTasks, handleTaskDelete, handleTaskDone, handleModalOpen }) => {
     return (
         <ul className={style.list}>
-            {filteredTasks.length > 0
-                ?
-                (filteredTasks.map((el:Itask) => (
+            {filteredTasks.length > 0 ? (
+                filteredTasks.map((el: Itask) => (
                     <TaskItem
+                        el={el}
                         handleTaskDone={() => handleTaskDone(el.id)}
-                        handleTaskDelete={() => handleTaskDelete(el.id)} el={el}
-                    />)))
-                :
-                (<div className={style.noTasks}>Задач нету!</div>)}
+                        handleTaskDelete={() => handleTaskDelete(el.id)}
+                        handleModalOpen={()=>handleModalOpen(el.id)} />
+                ))
+            ) : (
+                <div className={style.noTasks}>Задач нету!</div>
+            )}
         </ul>
     );
 };
