@@ -14,7 +14,7 @@ const TaskItem: FC<IListItem> = ({ handleTaskDelete, handleTaskDone, el, handleM
                 className={`${style.text} ${done ? style.completed : ""}`}>
                 {title}
             </div>
-            <TaskCheckbox onClick={() => handleTaskDone(id)} checked={el.done} />
+            <TaskCheckbox onClick={() => handleTaskDone(id)} checked={done} />
             <TaskDelete onClick={() => handleTaskDelete(id)} />
             <TaskEdit onClick = {()=>handleModalOpen(id) } />
         </li>
