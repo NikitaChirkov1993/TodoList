@@ -16,7 +16,7 @@ const TaskTodo = () => {
         handleFilterChange,
         onChangeInput,
         taskInput,
-        visibleModal,
+        isVisibleModal,
         handleModalOpen,
         handleModalClose,
         taskEditInput,
@@ -45,7 +45,7 @@ const TaskTodo = () => {
             />
 
             <ModalTaskEdit
-                visibleModal={visibleModal}
+                isVisibleModal={isVisibleModal}
                 handleModalClose={handleModalClose}
                 taskEditInput={taskEditInput}
                 onChangeEditInput={onChangeEditInput}

@@ -6,11 +6,12 @@ import { useTaskEditInput } from "./useTaskEditInput";
 import { useTaskInput } from "./useTaskInput";
 
 export const useTodo = () => {
-    const [tasks, setTask] = useState<Itask[]>(getTasksFromLocalStorage());
+        const [tasks, setTask] = useState<Itask[]>(getTasksFromLocalStorage());
         const [filteredTasks, setFilteredTasks] = useState<Itask[]>(getTasksFromLocalStorage());
         const [flagFilter, setFlagFilter] = useState<string>("");
-        const [visibleModal, setVisibleModal] = useState(false);
+        const [isVisibleModal, setIsVisibleModal] = useState(false);
         const [idEditTask, setIdEditTask] = useState<null | number>(null);
+
         const { onChangeInput, taskInput, setTaskInput } = useTaskInput();
         const {taskEditInput,setTaskEditInput,onChangeEditInput } = useTaskEditInput();
 
@@ -47,8 +48,8 @@ export const useTodo = () => {
         };
 
         //Логика фильтрации:
-        const handleFilterChange = (event: ChangeEvent<HTMLSelectElement>) => {
-            const value = event.target.value;
+        const handleFilterChange = (e: ChangeEvent<HTMLSelectElement>) => {
+            const value = e.target.value;
             setFlagFilter(value);
             setFilteredTasks(filterTasksUtil(tasks, value));
         };
@@ -56,11 +57,11 @@ export const useTodo = () => {
 
         //Логика модального окна:
         const handleModalOpen = (id:number) => {
-            setVisibleModal(true);
+            setIsVisibleModal(true);
             setIdEditTask(id);
         }
         const handleModalClose = () => {
-            setVisibleModal(false);
+            setIsVisibleModal(false);
             setTaskEditInput("");
         }
 
@@ -75,10 +76,8 @@ export const useTodo = () => {
                 console.log("ID нету");
             }
             setTaskEditInput("");
-            setVisibleModal(false);
-
+            setIsVisibleModal(false);
         }
-
 
     return {
         filteredTasks,
@@ -88,7 +87,7 @@ export const useTodo = () => {
         handleFilterChange,
         onChangeInput,
         taskInput,
-        visibleModal,
+        isVisibleModal,
         handleModalOpen,
         handleModalClose,
         taskEditInput,

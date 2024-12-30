@@ -6,6 +6,6 @@ export const filterTasksUtil = (tasks: Itask[], filter: string) => {
     } else if (filter === "notDone") {
         return tasks.filter((el) => el.done === false);
     } else {
-        return tasks; // Все задачи
+        return tasks;
     }
 };

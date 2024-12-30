@@ -2,7 +2,7 @@ import { ChangeEvent, FC } from "react";
 import style from "./TaskFilter.module.css";
 
 interface ITaskFilter {
-    onChange: (event: ChangeEvent<HTMLSelectElement>) => void ;
+    onChange: (e: ChangeEvent<HTMLSelectElement>) => void ;
 }
 
 const TaskFilter: FC<ITaskFilter> = ({ onChange }) => {

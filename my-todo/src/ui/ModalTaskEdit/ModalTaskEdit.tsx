@@ -2,13 +2,22 @@ import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import TextField from "@mui/material/TextField";
+import { ChangeEvent, FC } from "react";
 
-const ModalTaskEdit = ({visibleModal,handleModalClose,taskEditInput,onChangeEditInput,handleTaskEditAdd}) => {
+interface IModalTaskEdit {
+    isVisibleModal: boolean;
+    handleModalClose: () => void;
+    taskEditInput: string;
+    onChangeEditInput: (e: ChangeEvent<HTMLInputElement>) => void;
+    handleTaskEditAdd:() => void;
+}
+
+const ModalTaskEdit:FC<IModalTaskEdit> = ({isVisibleModal,handleModalClose,taskEditInput,onChangeEditInput,handleTaskEditAdd}) => {
     return (
         <div>
             <Dialog
                 PaperProps={{ sx: { padding: '20px', width: '400px' } }} aria-labelledby="form-dialog-title"
-                open={visibleModal}>
+                open={isVisibleModal}>
                 <TextField
                     value={taskEditInput}
                     onChange={onChangeEditInput}

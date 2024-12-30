@@ -1,16 +1,10 @@
 import TaskItem from "@components/TaskItem/TaskItem";
 import { FC } from "react";
-import { Itask } from "types/types";
+import { IListItem, Itask } from "types/types";
 import style from "./TaskList.module.css";
 
-interface ITaskList {
-    filteredTasks: Itask[];
-    handleTaskDelete: (id: number) => void;
-    handleTaskDone: (id: number) => void;
-    handleModalOpen: (id: number) => void;
-}
-
-const TaskList: FC<ITaskList> = ({ filteredTasks, handleTaskDelete, handleTaskDone, handleModalOpen }) => {
+const TaskList: FC<IListItem> = ({ filteredTasks, handleTaskDelete, handleTaskDone, handleModalOpen }) => {
+    if (!filteredTasks) return null;
     return (
         <ul className={style.list}>
             {filteredTasks.length > 0 ? (
