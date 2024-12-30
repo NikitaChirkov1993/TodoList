@@ -24,9 +24,6 @@ const TaskTodo = () => {
         handleTaskEditAdd,
     } = useTodo();
 
-    console.log(taskEditInput);
-
-
     return (
         <div className={style.wrapper}>
 
