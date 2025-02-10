@@ -11,7 +11,7 @@ const TaskFilter: FC<ITaskFilter> = ({ onChange }) => {
             <select name="filter-todo" id="filter-task" onChange={onChange}>
                 <option value="">Все задачи</option>
                 <option value="done">Выполненные задачи</option>
-                <option value="notDone">Не выполненные задачи</option>
+                <option value="notDone">Невыполненные задачи</option>
             </select>
         </div>
     );
